@@ -4,7 +4,7 @@ from pymongo.server_api import ServerApi
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
-load_dotenv()
+load_dotenv(dotenv_path="webkonselor/.env")
 
 # Get MongoDB URI from environment variables
 uri = os.getenv("DB_URI")
