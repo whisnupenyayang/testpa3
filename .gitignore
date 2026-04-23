@@ -1,0 +1,10 @@
+# Python
+**/__pycache__/
+**/*.pyc
+
+# Web / Node / PHP
+**/node_modules/
+**/vendor/
+
+# Rahasia
+**/.env
