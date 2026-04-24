@@ -138,10 +138,10 @@
                         <td style="font-family: 'Outfit', sans-serif; font-weight: 600;">{{ $m->reward_point }}</td>
                         <td>
                             <div class="actions">
-                                <a href="{{ route('counselor.education.modules.edit', $m->module_id) }}" class="btn-icon edit" title="Edit">
+                                <a href="{{ route('counselor.education.modules.edit', $m->id) }}" class="btn-icon edit" title="Edit">
                                     ✏️
                                 </a>
-                                <form action="{{ route('counselor.education.modules.destroy', $m->module_id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus modul ini?')">
+                                <form action="{{ route('counselor.education.modules.destroy', $m->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus modul ini?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn-icon delete" title="Hapus">🗑️</button>

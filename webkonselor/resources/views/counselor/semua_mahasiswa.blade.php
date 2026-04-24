@@ -6,220 +6,265 @@
     <title>Seluruh Mahasiswa – WebKonselor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --bg-base:     #080a12;
-            --bg-card:     #111422;
-            --bg-glass:    rgba(255,255,255,0.03);
-            --border:      rgba(255,255,255,0.06);
-            --accent:      #8b5cf6; /* Violet yang lebih cerah */
-            --accent-glow: rgba(139, 92, 246, 0.3);
-            --green:       #10b981;
-            --amber:       #f59e0b;
-            --red:         #ef4444;
-            --text-1:      #ffffff;
-            --text-2:      #a1a1aa;
-            --text-3:      #71717a;
-            --radius-xl:   20px;
-            --radius-lg:   14px;
-            --shadow-sm:   0 4px 12px rgba(0,0,0,0.5);
+            --bg-base:    #0d0f1a;
+            --bg-card:    #131627;
+            --bg-glass:   rgba(255,255,255,0.04);
+            --border:     rgba(255,255,255,0.08);
+            --accent:     #7c6ff7;
+            --accent-dim: rgba(124,111,247,0.15);
+            --green:      #34d399;
+            --amber:      #fbbf24;
+            --red:        #f87171;
+            --red-dim:    rgba(248,113,113,0.12);
+            --blue:       #60a5fa;
+            --text-1:     #f1f5f9;
+            --text-2:     #94a3b8;
+            --text-3:     #64748b;
+            --radius-lg:  16px;
+            --radius-md:  10px;
+            --radius-sm:  6px;
+            --shadow-red:  0 0 40px rgba(248,113,113,0.15);
         }
 
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background: var(--bg-base); 
-            color: var(--text-1); 
-            line-height: 1.6;
-        }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-base); color: var(--text-1); min-height: 100vh; }
 
-        /* Topbar yang lebih minimalis */
         .topbar {
-            position: sticky; top: 0; z-index: 100;
+            position: sticky; top: 0; z-index: 50;
             display: flex; align-items: center; justify-content: space-between;
-            padding: 0 40px; height: 70px;
-            background: rgba(8, 10, 18, 0.8); backdrop-filter: blur(20px);
+            padding: 0 32px; height: 64px;
+            background: rgba(13,15,26,0.88); backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border);
         }
-        .topbar-logo { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.2rem; text-decoration: none; color: white; letter-spacing: -0.5px; }
-        .logo-box {
-            width: 36px; height: 36px; border-radius: 10px;
-            background: linear-gradient(135deg, var(--accent), #d946ef);
-            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-            box-shadow: 0 0 15px var(--accent-glow);
+        .topbar-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.1rem; text-decoration: none; color: var(--text-1); }
+        .topbar-logo .dot {
+            width: 32px; height: 32px; border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent), #a78bfa);
+            display: flex; align-items: center; justify-content: center; font-size: 0.85rem;
         }
         
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 32px; }
 
-        /* Header Styling */
-        .page-header-wrap {
-            display: flex; justify-content: space-between; align-items: flex-end;
-            margin-bottom: 40px; border-bottom: 1px solid var(--border);
-            padding-bottom: 24px;
+        .page-header { margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .page-header h1 {
+            font-size: 1.6rem; font-weight: 700; letter-spacing: -0.03em;
+            color: var(--text-1); margin: 0;
         }
-        .header-title h1 { font-size: 2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 4px; }
-        .header-title p { color: var(--text-3); font-size: 0.95rem; }
+
+        .btn-back {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; border-radius: var(--radius-md);
+            background: var(--bg-glass); border: 1px solid var(--border);
+            color: var(--text-2); text-decoration: none; transition: 0.2s;
+        }
+        .btn-back:hover { background: var(--accent-dim); color: var(--text-1); border-color: rgba(124,111,247,0.4); }
 
         .btn-print {
-            background: white; color: black; padding: 12px 24px;
-            border-radius: var(--radius-lg); font-weight: 700; border: none;
-            cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex; align-items: center; gap: 10px; font-size: 0.9rem;
+            display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
+            border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 600;
+            background: var(--accent); color: white; border: none; cursor: pointer; text-decoration: none;
+            transition: opacity 0.2s;
         }
-        .btn-print:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255,255,255,0.1); filter: brightness(0.9); }
+        .btn-print:hover { opacity: 0.9; }
 
-        /* Card Student Row */
-        .student-list { display: grid; gap: 16px; }
-        .student-card {
+        .student-grid { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+        .student-row {
+            display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
             background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-xl);
-            padding: 24px;
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            align-items: center;
-            gap: 24px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            color: inherit;
+            border: 1px solid rgba(248,113,113,0.2);
+            border-radius: var(--radius-lg); padding: 16px 20px;
+            text-decoration: none; color: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
         }
-        .student-card:hover {
-            border-color: rgba(255,255,255,0.15);
-            background: #161a2d;
-            transform: scale(1.01);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
+        .student-row:hover { border-color: rgba(248,113,113,0.5); box-shadow: var(--shadow-red); transform: translateY(-1px); }
+        
+        .student-row.l2 { border-color: rgba(251,191,36,0.2); }
+        .student-row.l2:hover { border-color: rgba(251,191,36,0.5); box-shadow: 0 0 30px rgba(251,191,36,0.12); }
+        .student-row.l1 { border-color: rgba(96,165,250,0.2); }
+        .student-row.l1:hover { border-color: rgba(96,165,250,0.5); box-shadow: 0 0 30px rgba(96,165,250,0.12); }
+        .student-row.l0 { border-color: rgba(52,211,153,0.15); }
+        .student-row.l0:hover { border-color: rgba(52,211,153,0.4); box-shadow: 0 0 30px rgba(52,211,153,0.1); }
 
-        /* Border khusus berdasarkan level (Glow effect) */
-        .student-card.l3 { border-left: 5px solid var(--red); }
-        .student-card.l2 { border-left: 5px solid var(--amber); }
-        .student-card.l1 { border-left: 5px solid var(--accent); }
-        .student-card.l0 { border-left: 5px solid var(--green); }
-
-        .avatar-wrap { position: relative; }
         .avatar {
-            width: 60px; height: 60px; border-radius: 18px;
+            width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; font-weight: 800; color: white;
-            background: var(--bg-glass); border: 1px solid var(--border);
+            font-weight: 700; font-size: 1rem;
+            background: linear-gradient(135deg, #f87171, #ef4444); color: #fff;
         }
-        .avatar.l3 { background: linear-gradient(135deg, #ef4444, #991b1b); }
-        .avatar.l2 { background: linear-gradient(135deg, #f59e0b, #92400e); }
-        .avatar.l0 { background: linear-gradient(135deg, #10b981, #064e3b); }
+        .avatar.l2 { background: linear-gradient(135deg, var(--amber), #d97706); }
+        .avatar.l1 { background: linear-gradient(135deg, var(--blue), #2563eb); }
+        .avatar.l0 { background: linear-gradient(135deg, var(--green), #059669); }
 
-        .info-main .name { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; display: block; }
-        .info-main .stats { display: flex; gap: 16px; color: var(--text-3); font-size: 0.8rem; font-weight: 500; }
-        .stats span { display: flex; align-items: center; gap: 5px; }
-
-        /* Flag Alert */
-        .flag-box {
-            margin-top: 12px; padding: 10px 14px;
-            background: rgba(239, 68, 68, 0.08);
-            border-radius: var(--radius-lg);
-            font-size: 0.85rem; color: #fca5a5;
-            display: flex; gap: 10px; border: 1px solid rgba(239, 68, 68, 0.2);
+        .row-info { flex: 1; min-width: 0; }
+        .row-info .name { font-weight: 600; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .row-info .meta { color: var(--text-3); font-size: 0.77rem; margin-top: 3px; display: flex; gap: 12px; flex-wrap: wrap; }
+        .red-flag-row {
+            margin-top: 8px; padding: 6px 10px;
+            background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.18);
+            border-radius: var(--radius-sm); font-size: 0.77rem; color: var(--red);
+            display: flex; align-items: center; gap: 6px; width: 100%;
         }
 
-        /* Level Badge */
-        .status-section { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
-        .badge {
-            padding: 6px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 800;
-            text-transform: uppercase; letter-spacing: 0.5px;
+        .level-badge {
+            display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px;
+            border-radius: 999px; font-size: 0.73rem; font-weight: 700; white-space: nowrap; flex-shrink: 0;
+            background: var(--red-dim); color: var(--red);
         }
-        .badge.l3 { background: #fee2e2; color: #991b1b; box-shadow: 0 0 20px rgba(239, 68, 68, 0.3); }
-        .badge.l0 { background: #d1fae5; color: #065f46; }
+        .level-badge.l3 { background: var(--red-dim); color: var(--red); }
+        .level-badge.l2 { background: rgba(251,191,36,0.12); color: var(--amber); }
+        .level-badge.l1 { background: rgba(96,165,250,0.12); color: var(--blue); }
+        .level-badge.l0 { background: rgba(52,211,153,0.12); color: var(--green); }
+        .ldot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; animation: pulse 1.8s ease-in-out infinite; }
+        .level-badge.l1 .ldot, .level-badge.l2 .ldot, .level-badge.l0 .ldot { animation: none; }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
 
-        /* Confidence Meter */
-        .meter-container { width: 120px; text-align: right; }
-        .meter-label { font-size: 0.7rem; color: var(--text-3); margin-bottom: 4px; display: block; font-weight: 600; }
-        .meter-bar { height: 6px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; }
-        .meter-fill { height: 100%; border-radius: 10px; transition: width 1s ease-in-out; }
-        .meter-fill.l3 { background: var(--red); }
-        .meter-fill.l0 { background: var(--green); }
+        .conf-wrap { display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
+        .conf-bar { width: 72px; height: 5px; border-radius: 999px; background: rgba(255,255,255,0.07); overflow: hidden; }
+        .conf-fill { height: 100%; border-radius: 999px; background: var(--red); }
+        .conf-fill.l3 { background: var(--red); }
+        .conf-fill.l2 { background: var(--amber); }
+        .conf-fill.l1 { background: var(--blue); }
+        .conf-fill.l0 { background: var(--green); }
+        
+        .conf-val { font-size: 0.73rem; color: var(--text-3); width: 32px; text-align: right; }
 
-        /* Detail Button Hover */
-        .btn-view {
-            padding: 8px 16px; background: var(--bg-glass); border: 1px solid var(--border);
-            border-radius: var(--radius-md); font-size: 0.8rem; font-weight: 700; color: var(--text-2);
-            transition: all 0.3s;
+        .btn-detail {
+            display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px;
+            border-radius: var(--radius-md); font-size: 0.76rem; font-weight: 600;
+            text-decoration: none; background: var(--bg-glass);
+            border: 1px solid var(--border); color: var(--text-2); flex-shrink: 0;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
         }
-        .student-card:hover .btn-view { background: white; color: black; border-color: white; }
+        .btn-detail:hover { background: var(--accent-dim); color: var(--accent); border-color: rgba(124,111,247,0.4); }
 
-        @media (max-width: 768px) {
-            .student-card { grid-template-columns: 1fr; text-align: center; justify-items: center; }
-            .status-section { align-items: center; }
+        #toast {
+            position: fixed; bottom: 28px; right: 28px; z-index: 999;
+            display: none; align-items: center; gap: 10px;
+            padding: 12px 18px; border-radius: var(--radius-md);
+            background: var(--bg-card); border: 1px solid var(--border);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            font-size: 0.84rem; color: var(--text-1);
+            animation: slideInUp 0.3s ease;
         }
+        #toast.show { display: flex; }
+        @keyframes slideInUp { from { transform:translateY(16px);opacity:0 } to { transform:none;opacity:1 } }
     </style>
 </head>
 <body>
 
 <header class="topbar">
-    <a href="#" class="topbar-logo">
-        <div class="logo-box">W</div>
+    <a href="{{ route('counselor.dashboard') }}" class="topbar-logo">
+        <div class="dot">🎓</div>
         WebKonselor
     </a>
 </header>
 
 <main class="container">
-    <div class="page-header-wrap">
-        <div class="header-title">
-            <h1>Daftar Mahasiswa</h1>
-            <p>Memantau rekam jejak psikologis mahasiswa melalui analisis prediktif AI.</p>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+        <div class="page-header" style="margin: 0;">
+            <a href="{{ route('counselor.dashboard') }}" class="btn-back" title="Kembali">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+            </a>
+            <h1>📑 Daftar Seluruh Mahasiswa</h1>
         </div>
-        <button class="btn-print" onclick="window.print()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
-            Cetak PDF
+        
+        <button class="btn-print" onclick="printElementToPDF('printLevel3Area', 'Daftar_Seluruh_Mahasiswa.pdf')">
+            🖨️ Cetak Laporan PDF
         </button>
     </div>
 
-    <div class="student-list">
-        @foreach($students as $s)
-        @php
-            $lvl = $s->mental_level;
-            $class = $lvl == 3 ? 'l3' : ($lvl == 2 ? 'l2' : ($lvl == 1 ? 'l1' : 'l0'));
-        @endphp
-        
-        <a href="{{ route('counselor.detail', $s->nim) }}" class="student-card {{ $class }}">
-            <div class="avatar-wrap">
-                <div class="avatar {{ $class }}">{{ substr($s->name, 0, 1) }}</div>
-            </div>
+    @if($students->isEmpty())
+        <div style="text-align: center; padding: 60px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); color: var(--text-3);">
+            <div style="font-size: 2.5rem; margin-bottom: 16px;">✅</div>
+            <p>Belum ada mahasiswa yang masuk dalam rekam data AI.</p>
+        </div>
+    @else
+        <div id="printLevel3Area" style="background: var(--bg-card); padding: 32px; border-radius: var(--radius-lg); border: 1px solid var(--border);">
+            <h2 style="font-size: 1.1rem; margin-bottom: 8px;" data-html2canvas-ignore="true">Total: {{ $students->count() }} Mahasiswa</h2>
+            <p style="color: var(--text-3); font-size: 0.85rem; margin-bottom: 24px;" data-html2canvas-ignore="true">
+                Berikut adalah daftar seluruh rekam mahasiswa dan status kesehatan mentalnya berdasarkan prediksi AI.
+            </p>
 
-            <div class="info-main">
-                <span class="name">{{ $s->name }}</span>
-                <div class="stats">
-                    <span>🆔 {{ $s->nim }}</span>
-                    <span>👤 {{ $s->gender }}</span>
-                    <span>📚 {{ $s->journal_texts_count }} Jurnal</span>
-                </div>
-                
-                @if($s->mental_red_flag)
-                <div class="flag-box">
-                    <span>⚠️</span>
-                    <strong>Red Flag: "{{ $s->mental_red_flag }}"</strong>
-                </div>
-                @endif
-            </div>
-
-            <div class="status-section">
-                <span class="badge {{ $class }}">{{ $s->mental_label }}</span>
-                
-                <div class="meter-container">
-                    <span class="meter-label">AI CONFIDENCE: {{ round($s->mental_confidence) }}%</span>
-                    <div class="meter-bar">
-                        <div class="meter-fill {{ $class }}" style="width: {{ $s->mental_confidence }}%"></div>
+            <div class="student-grid">
+                @foreach($students as $s)
+                @php
+                    $lvlClass = $s->mental_level === 3 ? 'l3' : ($s->mental_level === 2 ? 'l2' : ($s->mental_level === 1 ? 'l1' : 'l0'));
+                @endphp
+                <a class="student-row {{ $lvlClass }}" href="{{ route('counselor.detail', $s->nim) }}">
+                    <div class="avatar {{ $lvlClass }}">{{ substr($s->name, 0, 1) }}</div>
+                    <div class="row-info">
+                        <div class="name">{{ $s->name }}</div>
+                        <div class="meta">
+                            <span>{{ $s->nim }}</span>
+                            <span>{{ $s->gender }}</span>
+                            <span>{{ $s->journal_texts_count }} jurnal</span>
+                            @if($s->mental_scanned_at)
+                                <span>Scan: {{ $s->mental_scanned_at->isoFormat('DD MMM, HH:mm') }}</span>
+                            @endif
+                        </div>
+                        @if($s->mental_red_flag)
+                        <div class="red-flag-row">⚠️ Red Flag: <strong>"{{ $s->mental_red_flag }}"</strong></div>
+                        @endif
                     </div>
-                </div>
-
-                <div class="btn-view">Lihat Jurnal</div>
+                    <span class="level-badge {{ $lvlClass }}">
+                        @if($s->mental_level === 3) <span class="ldot"></span> @endif
+                        {{ $s->mental_label }}
+                    </span>
+                    <div class="conf-wrap">
+                        <div class="conf-bar"><div class="conf-fill {{ $lvlClass }}" style="width:{{ round($s->mental_confidence) }}%"></div></div>
+                        <span class="conf-val">{{ round($s->mental_confidence) }}%</span>
+                    </div>
+                    <span class="btn-detail" data-html2canvas-ignore="true">Lihat Jurnal →</span>
+                </a>
+                @endforeach
             </div>
-        </a>
-        @endforeach
-    </div>
+        </div>
+    @endif
+
 </main>
+
+<div id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+    function showToast(msg, color = 'var(--green)') {
+        const t = document.getElementById('toast');
+        t.innerHTML = `<span style="width:8px;height:8px;border-radius:50%;background:${color};display:inline-block;flex-shrink:0"></span> ${msg}`;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3500);
+    }
+
+    function printElementToPDF(elementId, filename) {
+        showToast('⏳ Menyusun dokumen PDF...', 'var(--amber)');
+        const element = document.getElementById(elementId);
+
+        const opt = {
+            margin:       10,
+            filename:     filename,
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { 
+                scale: 2, 
+                useCORS: true, 
+                backgroundColor: '#131627',
+                scrollY: 0,
+                scrollX: 0
+            },
+            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'landscape' }
+        };
+
+        html2pdf().set(opt).from(element).save().then(() => {
+            showToast('✅ Berhasil mengunduh PDF', 'var(--green)');
+        }).catch(err => {
+            console.error(err);
+            showToast('⚠️ Gagal menyusun PDF', 'var(--red)');
+        });
+    }
+</script>
 
 </body>
 </html>

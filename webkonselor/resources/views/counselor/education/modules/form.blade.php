@@ -93,7 +93,7 @@
     <div class="card">
         <h1 class="form-title">{{ isset($module) ? '📝 Edit Modul Pembelajaran' : '✨ Buat Modul Baru' }}</h1>
 
-        <form action="{{ isset($module) ? route('counselor.education.modules.update', $module->module_id) : route('counselor.education.modules.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ isset($module) ? route('counselor.education.modules.update', $module->id) : route('counselor.education.modules.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @if(isset($module)) @method('PUT') @endif
 

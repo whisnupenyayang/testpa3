@@ -153,7 +153,7 @@
         </div>
         
         <button class="btn-print" onclick="printElementToPDF('printLevel3Area', 'Daftar_Seluruh_Mahasiswa_Prioritas.pdf')">
-            🖨️ Cetak Jurnal PDF
+            Cetak seluruh mahasiswa
         </button>
     </div>
 

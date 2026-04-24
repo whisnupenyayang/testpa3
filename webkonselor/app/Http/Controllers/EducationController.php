@@ -24,7 +24,7 @@ class EducationController extends Controller
 
     public function moduleIndex()
     {
-        $modules = Module::latest('module_id')->get();
+        $modules = Module::latest()->get();
         return view('counselor.education.modules.index', compact('modules'));
     }
 
