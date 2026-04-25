@@ -63,11 +63,11 @@
             color: var(--text-3); width: 18px; height: 18px;
         }
         .search-input {
-            width: 100%; padding: 10px 16px 10px 42px;
+            width: 100%; padding: 12px 16px 12px 48px;
             border-radius: 999px;
             border: 1px solid var(--border);
             background: var(--bg-card);
-            font-size: 0.9rem; color: var(--text-1);
+            font-size: 1rem; color: var(--text-1);
             outline: none; transition: border-color 0.2s;
         }
         .search-input:focus { border-color: var(--accent); }
@@ -80,8 +80,8 @@
         }
         .user-profile { display: flex; align-items: center; gap: 12px; cursor: pointer; }
         .user-info { display: flex; flex-direction: column; align-items: flex-end; }
-        .user-name { font-size: 0.9rem; font-weight: 600; color: var(--text-1); }
-        .user-role { font-size: 0.7rem; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; }
+        .user-name { font-size: 1rem; font-weight: 700; color: var(--text-1); }
+        .user-role { font-size: 0.8rem; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; }
         .user-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; background: var(--border); }
 
         /* ── Layout ── */
@@ -100,12 +100,12 @@
         }
         .alert-title-wrap { display: flex; gap: 12px; }
         .alert-icon { color: var(--red); margin-top: 2px; }
-        .alert-title { font-size: 1rem; font-weight: 600; color: var(--red); margin-bottom: 4px; }
-        .alert-desc { font-size: 0.85rem; color: var(--text-2); }
+        .alert-title { font-size: 1.15rem; font-weight: 700; color: var(--red); margin-bottom: 6px; }
+        .alert-desc { font-size: 0.95rem; color: var(--text-2); line-height: 1.5; }
         .alert-badge {
             background: var(--red); color: white;
-            padding: 6px 12px; border-radius: 999px;
-            font-size: 0.75rem; font-weight: 600;
+            padding: 8px 16px; border-radius: 999px;
+            font-size: 0.85rem; font-weight: 700;
             white-space: nowrap;
         }
 
@@ -124,19 +124,19 @@
         }
         .p-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
         .p-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-        .p-card-name { font-weight: 600; font-size: 1rem; color: var(--text-1); }
+        .p-card-name { font-weight: 700; font-size: 1.1rem; color: var(--text-1); }
         .p-card-badge {
             background: var(--red-dim); color: var(--red);
-            font-size: 0.65rem; font-weight: 700; padding: 4px 8px;
-            border-radius: 4px; text-transform: uppercase;
+            font-size: 0.75rem; font-weight: 800; padding: 4px 10px;
+            border-radius: 6px; text-transform: uppercase;
         }
-        .p-card-meta { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--text-3); margin-bottom: 6px; }
-        .p-card-meta svg { width: 14px; height: 14px; }
+        .p-card-meta { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--text-3); margin-bottom: 8px; }
+        .p-card-meta svg { width: 16px; height: 16px; }
 
         .btn-primary {
             display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-            padding: 10px 20px; border-radius: var(--radius-md);
-            font-size: 0.85rem; font-weight: 600; font-family: inherit;
+            padding: 12px 24px; border-radius: var(--radius-md);
+            font-size: 0.95rem; font-weight: 700; font-family: inherit;
             border: none; background: var(--accent); color: white;
             cursor: pointer; transition: background 0.2s; text-decoration: none;
         }
@@ -163,12 +163,12 @@
             display: flex; justify-content: space-between; align-items: center;
             margin-bottom: 20px;
         }
-        .card-title { font-size: 0.95rem; font-weight: 600; color: var(--text-1); }
-        .card-subtitle { font-size: 0.8rem; color: var(--text-3); margin-top: 2px; }
+        .card-title { font-size: 1.1rem; font-weight: 700; color: var(--text-1); }
+        .card-subtitle { font-size: 0.9rem; color: var(--text-3); margin-top: 4px; }
 
         .filter-dropdown {
-            padding: 6px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm);
-            font-size: 0.8rem; color: var(--text-2); background: var(--bg-card); cursor: pointer;
+            padding: 8px 14px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+            font-size: 0.9rem; color: var(--text-2); background: var(--bg-card); cursor: pointer;
             outline: none;
         }
         .btn-icon {
@@ -178,12 +178,14 @@
         }
 
         /* ── Stats Right Column ── */
-        .stats-section-title { font-size: 0.75rem; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; margin-top: 8px;}
+        .stats-section-title { font-size: 0.85rem; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 18px; margin-top: 8px;}
         
-        .progress-item { margin-bottom: 16px; }
-        .progress-header { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 500; margin-bottom: 6px; }
-        .progress-bar-bg { width: 100%; height: 6px; background: var(--border); border-radius: 999px; overflow: hidden; }
-        .progress-fill { height: 100%; border-radius: 999px; }
+        .progress-item { margin-bottom: 24px; }
+        .progress-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+        .progress-header span { font-size: 1.05rem; font-weight: 500; color: var(--text-1); }
+        .progress-header strong { font-size: 1.15rem; font-weight: 800; color: var(--text-1); }
+        .progress-bar-bg { width: 100%; height: 5px; background: #eef2f6; border-radius: 999px; overflow: hidden; }
+        .progress-fill { height: 100%; border-radius: 999px; transition: width 0.5s ease; }
         
         .feelings-list { display: flex; flex-direction: column; gap: 8px; }
         .feeling-item {
@@ -191,8 +193,8 @@
             padding: 12px 16px; background: #f8fafc; border-radius: var(--radius-md);
         }
         .feeling-item.danger { background: var(--red-dim); }
-        .feeling-info { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; font-weight: 500; }
-        .feeling-percent { font-size: 0.9rem; font-weight: 700; color: var(--text-1); }
+        .feeling-info { display: flex; align-items: center; gap: 12px; font-size: 0.95rem; font-weight: 600; }
+        .feeling-percent { font-size: 1rem; font-weight: 800; color: var(--text-1); }
         .feeling-item.danger .feeling-percent { color: var(--red); }
 
         /* ── Table Area ── */
@@ -204,19 +206,25 @@
             box-shadow: var(--shadow-sm);
             margin-bottom: 40px;
         }
-        .table-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .btn-link { color: var(--text-1); font-size: 0.85rem; font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 4px; }
+        .table-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+        .btn-link { color: var(--accent); font-size: 0.95rem; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 6px; }
         .btn-link:hover { color: var(--accent); }
         
         .premium-table { width: 100%; border-collapse: collapse; text-align: left; }
         .premium-table th {
-            padding: 12px 16px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            padding: 14px 16px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase;
             color: var(--text-3); border-bottom: 1px solid var(--border);
         }
-        .premium-table td { padding: 16px; font-size: 0.85rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+        .premium-table td { padding: 18px 16px; font-size: 1rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
         .premium-table tr:last-child td { border-bottom: none; }
-        .action-link { color: var(--accent); font-weight: 500; text-decoration: none; }
-        .action-link:hover { text-decoration: underline; }
+        .action-link { 
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 8px 20px; border-radius: var(--radius-sm);
+            background: var(--accent-light); color: var(--accent);
+            font-weight: 700; text-decoration: none; font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .action-link:hover { background: var(--accent); color: white; transform: translateY(-1px); }
 
         .spin {
             width: 14px; height: 14px; border-radius: 50%;
@@ -229,13 +237,80 @@
         #toast {
             position: fixed; bottom: 28px; right: 28px; z-index: 999;
             display: none; align-items: center; gap: 10px;
-            padding: 12px 18px; border-radius: var(--radius-md);
+            padding: 14px 24px; border-radius: var(--radius-md);
             background: var(--text-1); color: white;
-            box-shadow: var(--shadow-md); font-size: 0.85rem;
+            box-shadow: var(--shadow-md); font-size: 0.95rem;
             animation: slideInUp 0.3s ease;
         }
         #toast.show { display: flex; }
         @keyframes slideInUp { from { transform:translateY(16px);opacity:0 } to { transform:none;opacity:1 } }
+
+        /* ── Sidebar ── */
+        .sidebar {
+            width: 280px;
+            background: var(--bg-sidebar);
+            border-right: 1px solid var(--border);
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+        .sidebar-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .sidebar-header::before {
+            content: ''; display: block; width: 16px; height: 2px; background: #60a5fa; margin: 0 auto 12px auto; border-radius: 2px;
+        }
+        .sidebar-header::after {
+            content: ''; display: block; width: 16px; height: 2px; background: #f472b6; margin: 24px auto 0 auto; border-radius: 2px;
+        }
+        .sidebar-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #064e3b;
+            margin-bottom: 6px;
+        }
+        .sidebar-subtitle {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-2);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 24px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.2s;
+        }
+        .nav-item:hover {
+            background: rgba(16, 185, 129, 0.1);
+        }
+        .nav-item.active {
+            background: var(--accent-light);
+            color: #064e3b;
+            font-weight: 600;
+        }
+        .nav-item svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
 
         @media (max-width: 1024px) {
             .charts-stats-grid { grid-template-columns: 1fr; }
@@ -245,15 +320,31 @@
 </head>
 <body>
 
-
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-title">Portal Konselor</div>
+        <div class="sidebar-subtitle">Management Suite</div>
+    </div>
+    
+    <nav class="sidebar-nav">
+        <a href="{{ route('counselor.dashboard') }}" class="nav-item {{ request()->routeIs('counselor.dashboard') ? 'active' : '' }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            Dashboard
+        </a>
+        <a href="{{ route('counselor.education.index') }}" class="nav-item {{ request()->routeIs('counselor.education.*') ? 'active' : '' }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            Edukasi
+        </a>
+    </nav>
+</aside>
 
 <main class="main-wrapper">
     <!-- Topbar -->
     <header class="topbar">
-        <div class="search-container">
+        <form action="{{ route('counselor.semua-mahasiswa') }}" method="GET" class="search-container">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input type="text" class="search-input" placeholder="Cari data mahasiswa..." />
-        </div>
+            <input type="text" name="search" id="globalSearch" class="search-input" placeholder="Cari data mahasiswa..." />
+        </form>
         <div class="topbar-right">
             <div class="notification">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
@@ -366,11 +457,13 @@
                             <div class="card-subtitle">Distribusi emosi dari waktu ke waktu</div>
                         </div>
                         <div style="display: flex; gap: 8px;">
-                            <select class="filter-dropdown">
-                                <option>All Departments</option>
+                            <select class="filter-dropdown" onchange="loadChartData(this.value)">
+                                <option value="14d">14 Hari terakhir</option>
+                                <option value="1m">1 Bulan terakhir</option>
+                                <option value="4m">4 Bulan terakhir</option>
                             </select>
-                            <button class="btn-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                            <button class="btn-icon" onclick="printElementToPDF('feelingsTrendChart', 'Laporan_Feelings_Trend.pdf')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                             </button>
                         </div>
                     </div>
@@ -382,7 +475,9 @@
 
             <!-- Right: Stats -->
             <div class="card-box" id="emotionDistributionArea">
-                <div class="card-title">Rincian Statistik</div>
+                <div class="card-header" style="margin-bottom: 20px;">
+                    <div class="card-title">Rincian Statistik</div>
+                </div>
                 
                 <div class="stats-section-title" style="margin-top: 24px;">DISTRIBUSI MOOD</div>
                 
@@ -392,12 +487,12 @@
                         <span>Senang</span>
                         <strong>65%</strong>
                     </div>
-                    <div class="progress-bar-bg"><div class="progress-fill" style="width: 65%; background: var(--accent);"></div></div>
+                    <div class="progress-bar-bg"><div class="progress-fill" style="width: 65%; background: #059669;"></div></div>
                 </div>
                 <div class="progress-item">
                     <div class="progress-header">
                         <span>Antusias</span>
-                        <strong style="color: var(--accent);">20%</strong>
+                        <strong style="color: #059669;">20%</strong>
                     </div>
                     <div class="progress-bar-bg"><div class="progress-fill" style="width: 20%; background: #6ee7b7;"></div></div>
                 </div>
@@ -415,7 +510,7 @@
                     </div>
                     <div class="progress-bar-bg"><div class="progress-fill" style="width: 15%; background: var(--red);"></div></div>
                 </div>
-                    <div class="progress-item">
+                <div class="progress-item">
                     <div class="progress-header">
                         <span>Sedih</span>
                         <strong>15%</strong>
@@ -429,7 +524,7 @@
                     </div>
                     <div class="progress-bar-bg"><div class="progress-fill" style="width: 15%; background: var(--red);"></div></div>
                 </div>
-                    <div class="progress-item">
+                <div class="progress-item">
                     <div class="progress-header">
                         <span>Marah</span>
                         <strong>15%</strong>
@@ -437,120 +532,67 @@
                     <div class="progress-bar-bg"><div class="progress-fill" style="width: 15%; background: var(--red);"></div></div>
                 </div>
 
-                <div class="stats-section-title" style="margin-top: 32px;">PERASAAN UMUM</div>
+                <div class="card-header" style="margin-top: 32px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;">
+                    <div class="stats-section-title" style="margin: 0;">PERASAAN UMUM</div>
+                    <select class="filter-dropdown" id="feelingFilter" style="width: auto;">
+                        <option value="all">Semua Perasaan</option>
+                        <optgroup label="Positif">
+                            <option>Gembira</option>
+                            <option>Bangga</option>
+                            <option>Bersyukur</option>
+                            <option>Ceria</option>
+                            <option>Semangat</option>
+                            <option>Energik</option>
+                            <option>Kagum</option>
+                            <option>Bergairah</option>
+                        </optgroup>
+                        <optgroup label="Netral / Stabil">
+                            <option>Biasa Saja</option>
+                            <option>Stabil</option>
+                            <option>Tenang</option>
+                            <option>Santai</option>
+                        </optgroup>
+                        <optgroup label="Penasaran / Terkejut">
+                            <option>Tercengang</option>
+                            <option>Penasaran</option>
+                            <option>Tertarik</option>
+                            <option>Gelagapan</option>
+                        </optgroup>
+                        <optgroup label="Sedih / Putus Asa">
+                            <option>Pilu</option>
+                            <option>Depresi</option>
+                            <option>Kesepian</option>
+                            <option>Putus Asa</option>
+                        </optgroup>
+                        <optgroup label="Cemas / Panik">
+                            <option>Cemas</option>
+                            <option>Khawatir</option>
+                            <option>Panik</option>
+                            <option>Gelisah</option>
+                        </optgroup>
+                        <optgroup label="Kesal / Marah">
+                            <option>Kesal</option>
+                            <option>Jengkel</option>
+                            <option>Benci</option>
+                            <option>Kecewa</option>
+                        </optgroup>
+                    </select>
+                </div>
                 <div class="feelings-list" id="distList" style="max-height: 500px; overflow-y: auto; padding-right: 8px;">
-                    <!-- Gembira -->
-                    <div class="feeling-item">
-                        <div class="feeling-info"><span style="font-size: 1.2rem;">😃</span> <strong>Gembira</strong></div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--text-2);">· Bangga</div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--text-2);">· Bersyukur</div>
-                    </div>
-
-                    <!-- Ceria -->
-                    <div class="feeling-item">
-                        <div class="feeling-info"><span style="font-size: 1.2rem;">😁</span> <strong>Ceria</strong></div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--text-2);">· Semangat</div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--text-2);">· Energik</div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--text-2);">· Kagum</div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--text-2);">· Bergairah</div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--text-2);">· Biasa Saja</div>
-                    </div>
-
-                    <!-- Stabil -->
-                    <div class="feeling-item">
-                        <div class="feeling-info"><span style="font-size: 1.2rem;">🙂</span> <strong>Stabil</strong></div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--text-2);">· Tenang</div>
-                    </div>
-
-                    <!-- Santai -->
-                    <div class="feeling-item">
-                        <div class="feeling-info"><span style="font-size: 1.2rem;">😌</span> <strong>Santai</strong></div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--text-2);">· Tercengang</div>
-                    </div>
-
-                    <!-- Penasaran -->
-                    <div class="feeling-item">
-                        <div class="feeling-info"><span style="font-size: 1.2rem;">🤔</span> <strong>Penasaran</strong></div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--text-2);">· Tertarik</div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--text-2);">· Gelagapan</div>
-                    </div>
-
-                    <!-- Pilu -->
-                    <div class="feeling-item danger">
-                        <div class="feeling-info" style="color: var(--red);">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                            <strong>Pilu</strong>
+                    <!-- Placeholders while loading -->
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>Tenang</span>
+                            <strong>67%</strong>
                         </div>
+                        <div class="progress-bar-bg"><div class="progress-fill" style="width: 67%; background: #059669;"></div></div>
                     </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--red);">· Depresi</div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--red);">· Kesepian</div>
-                    </div>
-
-                    <!-- Putus Asa -->
-                    <div class="feeling-item danger">
-                        <div class="feeling-info" style="color: var(--red);">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                            <strong>Putus Asa</strong>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>Kagum</span>
+                            <strong style="color: #059669;">33%</strong>
                         </div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--red);">· Cemas</div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--red);">· Khawatir</div>
-                    </div>
-
-                    <!-- Panik -->
-                    <div class="feeling-item danger">
-                        <div class="feeling-info" style="color: var(--red);">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                            <strong>Panik</strong>
-                        </div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--red);">· Gelisah</div>
-                    </div>
-
-                    <!-- Kesal -->
-                    <div class="feeling-item danger">
-                        <div class="feeling-info" style="color: var(--red);">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                            <strong>Kesal</strong>
-                        </div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--red);">· Jengkel</div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--red);">· Benci</div>
-                    </div>
-                    <div class="feeling-item" style="padding: 8px 16px 8px 40px; background: transparent;">
-                        <div class="feeling-info" style="color: var(--red);">· Kecewa</div>
+                        <div class="progress-bar-bg"><div class="progress-fill" style="width: 33%; background: #6ee7b7;"></div></div>
                     </div>
                 </div>
             </div>
@@ -782,6 +824,41 @@
         });
     }
 
+    let globalDistribution = [];
+    function updateDistList(feeling = 'all') {
+        const container = document.getElementById('distList');
+        if(!container) return;
+
+        let html = '';
+        let itemsToDisplay = feeling === 'all' 
+            ? globalDistribution 
+            : globalDistribution.filter(item => item.name.toLowerCase().includes(feeling.toLowerCase()));
+
+        if (itemsToDisplay.length === 0) {
+            container.innerHTML = `<div style="padding: 20px; text-align: center; color: var(--text-3); font-size: 0.9rem;">Tidak ada data untuk "${feeling}"</div>`;
+            return;
+        }
+
+        itemsToDisplay.forEach(item => {
+            let isDanger = ['pilu', 'depresi', 'kesepian', 'putus asa', 'cemas', 'khawatir', 'panik', 'gelisah', 'kesal', 'jengkel', 'benci', 'kecewa', 'takut', 'marah', 'sedih'].some(w => item.name.toLowerCase().includes(w));
+            let dangerClass = isDanger ? 'danger' : '';
+            let colorStyle = isDanger ? 'color: var(--red);' : '';
+            
+            html += `
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span>${item.name}</span>
+                        <strong style="${colorStyle}">${item.percentage}%</strong>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-fill" style="width: ${item.percentage}%; background: ${isDanger ? 'var(--red)' : '#059669'};"></div>
+                    </div>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+    }
+
     function loadChartData(range = '14d') {
         fetch('{{ route("counselor.chart-data") }}?range=' + range)
             .then(res => res.json())
@@ -789,26 +866,9 @@
                 renderChart(data.labels, data.data);
                 renderFeelingsTrendChart(data.labels, data.feelingsTrend);
 
-                // Update right panel feelings list if needed, or keep static to match design exactly
-                // For now, let's inject dynamic data but styled as the mockup
-                let html = '';
                 if(data.distribution && data.distribution.length > 0) {
-                    data.distribution.forEach(item => {
-                        let isDanger = ['pilu', 'depresi', 'kesepian', 'putus asa', 'cemas', 'khawatir', 'panik', 'gelisah', 'kesal', 'jengkel', 'benci', 'kecewa', 'takut', 'marah', 'sedih'].some(w => item.name.toLowerCase().includes(w));
-                        let dangerClass = isDanger ? 'danger' : '';
-                        let colorStyle = isDanger ? 'color: var(--red);' : '';
-                        let iconHtml = isDanger ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>' : '<span style="font-size: 1.2rem;">' + item.icon + '</span>';
-                        
-                        html += `
-                            <div class="feeling-item ${dangerClass}">
-                                <div class="feeling-info" style="${colorStyle}">
-                                    ${iconHtml} ${item.name}
-                                </div>
-                                <div class="feeling-percent">${item.percentage}%</div>
-                            </div>
-                        `;
-                    });
-                    document.getElementById('distList').innerHTML = html;
+                    globalDistribution = data.distribution;
+                    updateDistList(document.getElementById('feelingFilter').value);
                 }
             })
             .catch(err => console.error("Gagal memuat data grafik:", err));
@@ -857,7 +917,76 @@
     document.addEventListener('DOMContentLoaded', function() {
         loadChartData('14d');
         loadTopStudents('Semua');
+
+        // Search Filter
+        const searchInput = document.getElementById('globalSearch');
+        if (searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                const val = e.target.value.toLowerCase();
+                
+                // Filter priority cards
+                const cards = document.querySelectorAll('.p-card');
+                cards.forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    card.style.display = text.includes(val) ? '' : 'none';
+                });
+
+                // Filter table rows
+                const rows = document.querySelectorAll('#topStudentsBody tr');
+                rows.forEach(row => {
+                    const text = row.textContent.toLowerCase();
+                    row.style.display = text.includes(val) ? '' : 'none';
+                });
+            });
+        }
+        // Feeling Filter
+        const feelingFilter = document.getElementById('feelingFilter');
+        if (feelingFilter) {
+            feelingFilter.addEventListener('change', function() {
+                updateDistList(this.value);
+            });
+        }
     });
+
+    function printElementToPDF(elementId, filename) {
+        const canvas = document.getElementById(elementId);
+        if (!canvas) {
+            alert("Elemen tidak ditemukan!");
+            return;
+        }
+        
+        // Membuka gambar dalam tab baru untuk pencetakan yang bersih
+        const dataUrl = canvas.toDataURL('image/png');
+        const win = window.open('', '_blank');
+        win.document.write(`
+            <html>
+                <head>
+                    <title>${filename}</title>
+                    <style>
+                        body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f0f0; font-family: 'Inter', sans-serif; }
+                        .container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; }
+                        img { max-width: 100%; height: auto; border: 1px solid #ddd; margin-top: 20px; }
+                        h2 { color: #064e3b; margin: 0; }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <h2>Laporan Tren Suasana Perasaan</h2>
+                        <p style="color: #666; font-size: 14px;">Dicetak pada: ${new Date().toLocaleString('id-ID')}</p>
+                        <img src="${dataUrl}" />
+                        <p style="margin-top: 20px; font-size: 12px; color: #999;">WebKonselor Management Suite</p>
+                    </div>
+                    <script>
+                        window.onload = function() {
+                            window.print();
+                            // window.close(); // Optional: close after print
+                        };
+                    <\/script>
+                </body>
+            </html>
+        `);
+        win.document.close();
+    }
 </script>
 
 </body>

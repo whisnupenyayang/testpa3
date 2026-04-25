@@ -46,10 +46,16 @@ class CounselorController extends Controller
         return view('counselor.prioritas', compact('students'));
     }
 
-    public function semuaMahasiswa()
+    public function semuaMahasiswa(Request $request)
     {
+        $search = $request->query('search');
+
         $students = Student::with('journalTexts')
             ->whereNotNull('mental_level')
+            ->when($search, function($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('nim', 'like', "%{$search}%");
+            })
             ->orderBy('mental_level', 'desc')
             ->orderBy('mental_confidence', 'desc')
             ->get()
@@ -58,7 +64,7 @@ class CounselorController extends Controller
                 return $student;
             });
 
-        return view('counselor.semua_mahasiswa', compact('students'));
+        return view('counselor.semua_mahasiswa', compact('students', 'search'));
     }
 
     public function getChartData(Request $request)

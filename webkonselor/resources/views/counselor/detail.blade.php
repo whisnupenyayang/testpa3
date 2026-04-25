@@ -14,6 +14,7 @@
 
         :root {
             --bg-base:    #f8fafc;
+            --bg-sidebar: #eefdf5;
             --bg-card:    #ffffff;
             --border:     #e2e8f0;
             --accent:     #059669;
@@ -33,26 +34,65 @@
             --shadow-md:  0 4px 6px -1px rgba(0,0,0,0.05);
         }
 
-        body { font-family: 'Inter', sans-serif; background: var(--bg-base); color: var(--text-1); min-height: 100vh; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-base); color: var(--text-1); min-height: 100vh; display: flex; }
+
+        /* ── Sidebar ── */
+        .sidebar {
+            width: 280px; background: var(--bg-sidebar); border-right: 1px solid var(--border);
+            padding: 32px 24px; display: flex; flex-direction: column; flex-shrink: 0;
+            height: 100vh; position: sticky; top: 0;
+        }
+        .sidebar-header { margin-bottom: 40px; text-align: center; }
+        .sidebar-header::before { content: ''; display: block; width: 16px; height: 2px; background: #60a5fa; margin: 0 auto 12px auto; border-radius: 2px; }
+        .sidebar-header::after { content: ''; display: block; width: 16px; height: 2px; background: #f472b6; margin: 24px auto 0 auto; border-radius: 2px; }
+        .sidebar-title { font-size: 1.5rem; font-weight: 800; color: #064e3b; margin-bottom: 6px; }
+        .sidebar-subtitle { font-size: 0.9rem; font-weight: 600; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.05em; }
+        .sidebar-nav { display: flex; flex-direction: column; gap: 8px; }
+        .nav-item { display: flex; align-items: center; gap: 16px; padding: 16px 24px; border-radius: var(--radius-md); text-decoration: none; color: var(--accent); font-weight: 600; font-size: 1.05rem; transition: all 0.2s; }
+        .nav-item:hover { background: rgba(16, 185, 129, 0.1); }
+        .nav-item.active { background: var(--accent-dim); color: #064e3b; font-weight: 700; }
+        .nav-item svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+        /* ── Main Content Area ── */
+        .main-wrapper { flex: 1; display: flex; flex-direction: column; min-width: 0; }
 
         /* ── Top Bar ── */
         .topbar {
             position: sticky; top: 0; z-index: 50;
             display: flex; align-items: center; justify-content: space-between;
-            padding: 0 32px; height: 64px;
-            background: rgba(255,255,255,0.9); backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--border);
+            padding: 0 32px; height: 72px;
+            background: rgba(248, 250, 252, 0.8); backdrop-filter: blur(12px);
         }
-        .btn-back {
-            display: inline-flex; align-items: center; gap: 6px;
-            padding: 7px 14px; border-radius: var(--radius-md);
-            font-size: 0.85rem; font-weight: 500; text-decoration: none;
-            color: var(--text-2); transition: 0.2s;
+        .search-container {
+            position: relative; width: 400px;
         }
+        .search-container svg {
+            position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+            color: var(--text-3); width: 18px; height: 18px;
+        }
+        .search-input {
+            width: 100%; padding: 12px 16px 12px 48px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: #f8fafc;
+            font-size: 1rem; color: var(--text-1);
+            outline: none; transition: all 0.2s;
+        }
+        .search-input:focus { border-color: var(--accent); background: #ffffff; box-shadow: 0 0 0 4px var(--accent-light); }
+        
+        .topbar-right { display: flex; align-items: center; gap: 24px; }
+        .user-profile { display: flex; align-items: center; gap: 12px; cursor: pointer; padding: 4px 8px; border-radius: 12px; transition: background 0.2s; }
+        .user-profile:hover { background: #f8fafc; }
+        .user-info { display: flex; flex-direction: column; align-items: flex-end; }
+        .user-name { font-size: 1rem; font-weight: 700; color: var(--text-1); }
+        .user-role { font-size: 0.8rem; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; }
+        .user-avatar { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; background: var(--border); border: 2px solid #f8fafc; }
+        
+        .btn-back { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 600; text-decoration: none; color: var(--text-2); transition: 0.2s; }
         .btn-back:hover { color: var(--accent); }
 
         /* ── Layout ── */
-        .container { max-width: 1100px; margin: 0 auto; padding: 32px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 32px; width: 100%; }
 
         .grid-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; margin-bottom: 24px; }
         @media (max-width: 900px) { .grid-layout { grid-template-columns: 1fr; } }
@@ -64,85 +104,127 @@
             border-radius: var(--radius-lg); padding: 24px 28px;
             margin-bottom: 24px; box-shadow: var(--shadow-sm);
         }
-        .profile-left h1 { font-size: 1.25rem; font-weight: 700; color: var(--text-1); margin-bottom: 4px; display: flex; align-items: center; gap: 12px; }
-        .profile-left p { color: var(--text-2); font-size: 0.85rem; margin-bottom: 8px; }
-        .profile-left .tags { display: flex; gap: 16px; font-size: 0.85rem; font-weight: 500; color: var(--accent); }
+        .profile-left h1 { font-size: 1.5rem; font-weight: 800; color: var(--text-1); margin-bottom: 6px; display: flex; align-items: center; gap: 12px; }
+        .profile-left p { color: var(--text-2); font-size: 1rem; margin-bottom: 10px; }
+        .profile-left .tags { display: flex; gap: 16px; font-size: 1rem; font-weight: 600; color: var(--accent); }
 
-        .pill { font-size: 0.72rem; font-weight: 600; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+        .pill { font-size: 0.85rem; font-weight: 700; padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
         .pill-L { background: #dbeafe; color: var(--blue); }
         .pill-P { background: var(--accent-dim); color: var(--accent); }
 
         /* ── Cards ── */
         .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm); }
-        .card-title { font-size: 0.95rem; font-weight: 600; color: var(--text-1); display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+        .card-title { font-size: 1.1rem; font-weight: 700; color: var(--text-1); display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
 
         .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
         .stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 4px; }
-        .stat-card .label { font-size: 0.7rem; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; }
+        .stat-card .label { font-size: 0.85rem; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; }
         .stat-card .value { font-size: 1.5rem; font-weight: 700; color: var(--text-1); display: flex; align-items: center; gap: 6px; }
 
         /* ── Insight Card ── */
         .insight-card { background: #0f766e; color: #fff; border-radius: var(--radius-lg); padding: 24px; display: flex; flex-direction: column; height: 100%; justify-content: space-between; }
-        .insight-card .header { display: flex; align-items: center; gap: 10px; font-weight: 600; margin-bottom: 16px; }
-        .insight-card p { font-size: 0.85rem; line-height: 1.6; color: #ccfbf1; margin-bottom: 24px; flex-grow: 1; }
+        .insight-card .header { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; }
+        .insight-card p { font-size: 1rem; line-height: 1.6; color: #ccfbf1; margin-bottom: 24px; flex-grow: 1; }
         .score-bar { background: rgba(255,255,255,0.2); height: 6px; border-radius: 999px; width: 100%; margin-top: 8px; overflow: hidden; }
         .score-fill { background: #fff; height: 100%; border-radius: 999px; }
         
-        .btn-white { background: #fff; color: #0f766e; border: none; padding: 10px 16px; border-radius: var(--radius-md); font-weight: 600; font-size: 0.85rem; cursor: pointer; text-align: center; display: flex; justify-content: center; align-items: center; gap: 6px; width: 100%; }
+        .btn-white { background: #fff; color: #0f766e; border: none; padding: 12px 18px; border-radius: var(--radius-md); font-weight: 700; font-size: 0.95rem; cursor: pointer; text-align: center; display: flex; justify-content: center; align-items: center; gap: 6px; width: 100%; }
         .btn-white:hover { background: #f8fafc; }
 
         /* ── Table Area ── */
         .table-area { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm); }
         .table-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        table.premium-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-        .premium-table th { padding: 12px 16px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: var(--text-3); border-bottom: 1px solid var(--border); text-align: left; }
-        .premium-table td { padding: 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        
+        .premium-table { width: 100%; border-collapse: collapse; text-align: left; }
+        .premium-table th {
+            padding: 14px 16px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase;
+            color: var(--text-3); border-bottom: 1px solid var(--border);
+        }
+        .premium-table td { padding: 18px 16px; font-size: 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
         .premium-table tr:last-child td { border-bottom: none; }
-        .action-link { color: var(--accent); font-weight: 600; text-decoration: none; }
+        
+        .btn-outline {
+            padding: 10px 18px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+            background: #fff; color: var(--text-2); font-size: 0.95rem; font-weight: 600; cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+        .action-link { 
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 8px 16px; border-radius: var(--radius-sm);
+            background: var(--accent-dim); color: var(--accent);
+            font-weight: 700; text-decoration: none; font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .action-link:hover { background: var(--accent); color: white; transform: translateY(-1px); }
+
+        .no-journals {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 80px 40px; text-align: center; color: var(--text-3);
+        }
+        .no-journals svg { width: 120px; height: 120px; margin-bottom: 24px; opacity: 0.05; color: var(--text-1); }
+        .no-journals p { font-size: 1.1rem; font-weight: 500; }
 
         /* ── Badges & Alerts ── */
-        .risk-alert { background: var(--red-dim); border: 1px solid #fca5a5; border-radius: var(--radius-lg); padding: 20px 24px; margin-bottom: 24px; display: flex; align-items: flex-start; gap: 16px; }
-        .risk-alert .title { color: var(--red); font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+        .risk-alert { background: var(--red-dim); border: 1px solid #fca5a5; border-radius: var(--radius-lg); padding: 24px 28px; margin-bottom: 24px; display: flex; align-items: flex-start; gap: 16px; }
+        .risk-alert .title { color: var(--red); font-weight: 800; font-size: 1.1rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
         
         .emotion-tag { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--text-1); }
-        .journal-text-cell { max-width: 300px; color: var(--text-2); line-height: 1.5; }
-        .ai-reply-cell { max-width: 260px; color: var(--green); font-size: 0.8rem; line-height: 1.5; font-style: italic; }
+        .ai-none { color: var(--text-3); font-style: italic; }
 
         /* ── Modal ── */
         .modal-backdrop { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); align-items: center; justify-content: center; padding: 24px; }
         .modal-backdrop.show { display: flex; }
-        .modal { background: var(--bg-card); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); width: 100%; max-width: 560px; }
-        .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--border); font-weight: 700; }
+        .modal { background: var(--bg-card); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); width: 100%; max-width: 560px; overflow: hidden; }
+        .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--border); background: #f8fafc; }
+        .modal-header h2 { font-size: 1.3rem; font-weight: 800; color: var(--text-1); }
+        .modal-close { background: none; border: none; font-size: 1.5rem; color: var(--text-3); cursor: pointer; }
         .modal-body { padding: 24px; }
-        .summary-box { background: var(--bg-base); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px; min-height: 80px; font-size: 0.88rem; line-height: 1.6; color: var(--text-2); }
+        .summary-box { background: var(--bg-base); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; min-height: 120px; font-size: 1.05rem; line-height: 1.6; color: var(--text-2); }
+        .spin { width: 18px; height: 18px; border: 2px solid rgba(5, 150, 105, 0.2); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; display: inline-block; }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
 
-<!-- Top Bar -->
-<header class="topbar">
-    <div style="display: flex; align-items: center; gap: 12px; width: 100%; max-width: 1100px; margin: 0 auto;">
-        <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-            <div style="background: var(--bg-base); padding: 8px 16px; border-radius: 999px; font-size: 0.85rem; color: var(--text-3); width: 300px;">
-                🔍 Cari data mahasiswa...
-            </div>
-            <div style="display: flex; align-items: center; gap: 20px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-2); cursor: pointer;"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <div style="text-align: right; line-height: 1.2;">
-                        <div style="font-weight: 600; font-size: 0.85rem;">Laura Cecill</div>
-                        <div style="font-size: 0.7rem; color: var(--text-3); font-weight: 600;">KONSELOR IT DEL</div>
-                    </div>
-                    <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--text-3); overflow: hidden;">
-                        <img src="https://i.pravatar.cc/150?img=47" style="width: 100%; height: 100%; object-fit: cover;" />
-                    </div>
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-title">Portal Konselor</div>
+        <div class="sidebar-subtitle">Management Suite</div>
+    </div>
+    
+    <nav class="sidebar-nav">
+        <a href="{{ route('counselor.dashboard') }}" class="nav-item {{ request()->routeIs('counselor.dashboard') || request()->routeIs('counselor.detail') ? 'active' : '' }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            Dashboard
+        </a>
+        <a href="{{ route('counselor.education.index') }}" class="nav-item {{ request()->routeIs('counselor.education.*') ? 'active' : '' }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            Edukasi
+        </a>
+    </nav>
+</aside>
+
+<main class="main-wrapper">
+    <!-- Topbar -->
+    <header class="topbar">
+        <form action="{{ route('counselor.semua-mahasiswa') }}" method="GET" class="search-container">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" name="search" class="search-input" placeholder="Cari data mahasiswa..." />
+        </form>
+        <div class="topbar-right">
+            <div class="user-profile">
+                <div class="user-info">
+                    <span class="user-name">{{ Auth::user()->name ?? 'Laura Cecil' }}</span>
+                    <span class="user-role">KONSELOR IT DEL</span>
                 </div>
+                <div class="user-avatar" style="background-image: url('https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name ?? 'Laura Cecil') }}&background=0D8ABC&color=fff');"></div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 
-<main class="container">
+    <div class="container">
     <a href="{{ route('counselor.dashboard') }}" class="btn-back" style="margin-bottom: 24px;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
         Kembali ke Daftar Mahasiswa
@@ -167,7 +249,7 @@
         </div>
         <div style="display: flex; gap: 12px; align-items: center;">
             <div style="display: flex; flex-direction: column; align-items: flex-end;">
-                <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; color: var(--text-3); margin-bottom: 4px;">Koreksi Status</span>
+                <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: var(--text-3); margin-bottom: 6px;">Koreksi Status</span>
                 <select id="statusSelect" style="border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px 12px; font-size: 0.85rem; outline: none; background: #fff; cursor: pointer; color: var(--text-1);">
                     <option value="0" {{ $student->mental_level == 0 ? 'selected' : '' }}>Level 0 (Positif)</option>
                     <option value="1" {{ $student->mental_level == 1 ? 'selected' : '' }}>Level 1 (Ringan)</option>
@@ -188,12 +270,12 @@
         <div>
             <div class="title">
                 TEMUAN KRISIS (AI RISK ANALYSIS)
-                <span class="pill" style="background: var(--red); color: white; font-size: 0.65rem;">URGENT</span>
+                <span class="pill" style="background: var(--red); color: white; font-size: 0.8rem;">URGENT</span>
             </div>
             <div style="color: var(--text-1); font-size: 0.9rem; line-height: 1.5;">
                 {{ $student->mental_red_flag }}
             </div>
-            <div style="margin-top: 8px; font-size: 0.75rem; color: var(--text-3);">
+            <div style="margin-top: 10px; font-size: 0.85rem; color: var(--text-3); font-weight: 500;">
                 *Alasan ini dideteksi otomatis berdasarkan pola Jurnal dan Tren Mood mahasiswa selama 14 hari terakhir.
             </div>
         </div>
@@ -280,8 +362,8 @@
         <div class="table-header">
             <span style="font-weight: 600; font-size: 1rem; color: var(--text-1);">Riwayat Log Jurnal</span>
             <div style="display: flex; gap: 8px;">
-                <button style="background: #fff; border: 1px solid var(--border); padding: 8px 16px; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 500; cursor: pointer;">Filter</button>
-                <button style="background: #fff; border: 1px solid var(--border); padding: 8px 16px; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 500; cursor: pointer;">Ekspor PDF</button>
+                <button class="btn-outline">Filter</button>
+                <button class="btn-outline">Ekspor PDF</button>
             </div>
         </div>
 
@@ -300,7 +382,7 @@
             <table class="premium-table">
                 <thead>
                     <tr>
-                        <th style="width: 40px;"></th>
+                        <th style="width: 40px; text-align: center;">#</th>
                         <th style="width: 160px;">Tanggal & Waktu</th>
                         <th style="width: 180px;">Mood Utama</th>
                         <th>Isi Jurnal & Analisis AI</th>
@@ -348,15 +430,14 @@
                             @endif
                         </td>
                         <td style="vertical-align: top; padding-top: 20px;">
-                            @if($checkin && $checkin->aiAnalysis)
-                                <div style="color: var(--green); font-size: 0.85rem;">
-                                    Sudah dianalisis
-                                </div>
-                            @else
-                                <div style="color: var(--text-2); font-size: 0.85rem;">
-                                    Belum ada analisis
-                                </div>
-                            @endif
+                            <div style="display: flex; flex-direction: column; gap: 4px;">
+                                @if($checkin && $checkin->aiAnalysis)
+                                    <span style="color: var(--green); font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Sudah dianalisis</span>
+                                @else
+                                    <span style="color: var(--text-3); font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">Belum ada analisis</span>
+                                @endif
+                                <a href="#" class="action-link" style="font-size: 0.8rem; margin-top: 4px;">Lihat Detail</a>
+                            </div>
                         </td>
                     </tr>
                     @endforeach
@@ -365,6 +446,7 @@
         @endif
     </div>
 
+    </div>
 </main>
 
 <!-- AI Summary Modal -->
