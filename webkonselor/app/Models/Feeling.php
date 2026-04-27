@@ -7,6 +7,8 @@ use MongoDB\Laravel\Eloquent\Model;
 
 class Feeling extends Model
 {
+    protected $connection = 'mongodb';
+
     use HasFactory;
 
     // no explicit primaryKey so MongoDB uses default _id

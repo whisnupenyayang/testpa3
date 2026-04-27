@@ -6,6 +6,8 @@ use MongoDB\Laravel\Eloquent\Model;
 
 class Student extends Model
 {
+    protected $connection = 'mongodb';
+
     protected $primaryKey = 'nim';
     public $incrementing = false;
     protected $keyType = 'string';

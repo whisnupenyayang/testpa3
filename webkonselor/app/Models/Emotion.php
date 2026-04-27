@@ -6,6 +6,8 @@ use MongoDB\Laravel\Eloquent\Model;
 
 class Emotion extends Model
 {
+    protected $connection = 'mongodb';
+
     protected $table = 'emotions';
 
     protected $fillable = ['emotion_name'];

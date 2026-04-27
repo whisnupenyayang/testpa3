@@ -6,6 +6,8 @@ use MongoDB\Laravel\Eloquent\Model;
 
 class Module extends Model
 {
+    protected $connection = 'mongodb';
+
     protected $fillable = [
         'title',
         'thumbnail',

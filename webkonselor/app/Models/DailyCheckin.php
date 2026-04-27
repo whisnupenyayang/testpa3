@@ -7,6 +7,8 @@ use MongoDB\Laravel\Eloquent\Model;
 
 class DailyCheckin extends Model
 {
+    protected $connection = 'mongodb';
+
     use HasFactory;
 
     protected $fillable = [

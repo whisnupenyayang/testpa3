@@ -6,6 +6,8 @@ use MongoDB\Laravel\Eloquent\Model;
 
 class Challenge extends Model
 {
+    protected $connection = 'mongodb';
+
     // Primary key is 'id' by default
 
     protected $fillable = [

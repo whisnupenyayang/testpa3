@@ -15,11 +15,7 @@ return [
     */
 
     'postmark' => [
-        'key' => env('POSTMARK_API_KEY'),
-    ],
-
-    'resend' => [
-        'key' => env('RESEND_API_KEY'),
+        'token' => env('POSTMARK_TOKEN'),
     ],
 
     'ses' => [
@@ -33,6 +29,13 @@ return [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
+    ],
+
+    'kampus_api' => [
+    'base_url' => env('KAMPUS_API_BASE_URL'),
+    'username' => env('KAMPUS_API_USERNAME'),
+    'password' => env('KAMPUS_API_PASSWORD'),
+    'timeout'  => env('KAMPUS_API_TIMEOUT', 20),
     ],
 
 ];

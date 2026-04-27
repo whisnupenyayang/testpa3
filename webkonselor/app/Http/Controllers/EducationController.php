@@ -17,7 +17,7 @@ class EducationController extends Controller
         $moduleCount = Module::count();
         $challengeCount = Challenge::count();
 
-        return view('counselor.education.index', compact('moduleCount', 'challengeCount'));
+        return view('admin.education.index', compact('moduleCount', 'challengeCount'));
     }
 
     // --- MODULE CRUD ---
@@ -25,12 +25,12 @@ class EducationController extends Controller
     public function moduleIndex()
     {
         $modules = Module::latest()->get();
-        return view('counselor.education.modules.index', compact('modules'));
+        return view('admin.education.modules.index', compact('modules'));
     }
 
     public function moduleCreate()
     {
-        return view('counselor.education.modules.form');
+        return view('admin.education.modules.form');
     }
 
     public function moduleStore(Request $request)
@@ -70,7 +70,7 @@ class EducationController extends Controller
 
     public function moduleEdit(Module $module)
     {
-        return view('counselor.education.modules.form', compact('module'));
+        return view('admin.education.modules.form', compact('module'));
     }
 
     public function moduleUpdate(Request $request, Module $module)
@@ -141,12 +141,12 @@ class EducationController extends Controller
     public function challengeIndex()
     {
         $challenges = Challenge::latest()->get();
-        return view('counselor.education.challenges.index', compact('challenges'));
+        return view('admin.education.challenges.index', compact('challenges'));
     }
 
     public function challengeCreate()
     {
-        return view('counselor.education.challenges.form');
+        return view('admin.education.challenges.form');
     }
 
     public function challengeStore(Request $request)
@@ -167,7 +167,7 @@ class EducationController extends Controller
 
     public function challengeEdit(Challenge $challenge)
     {
-        return view('counselor.education.challenges.form', compact('challenge'));
+        return view('admin.education.challenges.form', compact('challenge'));
     }
 
     public function challengeUpdate(Request $request, Challenge $challenge)
