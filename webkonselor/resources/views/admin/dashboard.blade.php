@@ -410,6 +410,14 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script>
+// Realtime notification listener
+if (window.Echo) {
+    window.Echo.channel('urgent-student-notifications')
+        .listen('.new.urgent.student', (e) => {
+            showToast('🚨 Notifikasi urgent baru: ' + e.notification.nama + ' (' + e.notification.label + ')', true);
+            // Optionally, reload or fetch notification list here
+        });
+}
     function showToast(msg, isError = false) {
         const t = document.getElementById('toast');
         if(!t) return;

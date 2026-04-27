@@ -1,3 +1,9 @@
+use App\Http\Controllers\NotificationController;
+// NOTIFIKASI REALTIME
+Route::prefix('api')->middleware(['auth', 'role:konselor'])->group(function () {
+    Route::get('/notifications', [NotificationController::class, 'fetch']);
+    Route::post('/notifications', [NotificationController::class, 'store']);
+});
 <?php
 
 use Illuminate\Support\Facades\Route;
