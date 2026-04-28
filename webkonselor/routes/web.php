@@ -1,9 +1,3 @@
-use App\Http\Controllers\NotificationController;
-// NOTIFIKASI REALTIME
-Route::prefix('api')->middleware(['auth', 'role:konselor'])->group(function () {
-    Route::get('/notifications', [NotificationController::class, 'fetch']);
-    Route::post('/notifications', [NotificationController::class, 'store']);
-});
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -16,6 +10,7 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\KampusApiController;
 use App\Http\Controllers\CounselorController;
 use App\Http\Controllers\EducationController;
+use App\Http\Controllers\NotificationController;
 
 
 // ═══════════════════════════════
@@ -99,6 +94,12 @@ Route::prefix('admin')
         Route::get('/kampus-api/mahasiswa', [KampusApiController::class, 'mahasiswa']);
         Route::get('/kampus-api/mahasiswa/{nim}', [KampusApiController::class, 'mahasiswaByNim']);
     });
+
+// NOTIFIKASI REALTIME
+Route::prefix('api')->middleware(['auth', 'role:konselor'])->group(function () {
+    Route::get('/notifications', [NotificationController::class, 'fetch']);
+    Route::post('/notifications', [NotificationController::class, 'store']);
+});
 
 
 Route::get('/test-mongodb', function () {
